@@ -1,0 +1,42 @@
+/* Redaktor alətlər paneli və xüsusiyyətlər forması — mövcud dizayn dəyişənlərindən istifadə edir. */
+.toolbar { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; padding: 6px; background: var(--panel); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); }
+.toolbar button { all: unset; cursor: pointer; display: flex; align-items: center; gap: 7px; padding: 8px 11px; border-radius: 9px; font-size: 12.5px; color: var(--muted); transition: background 0.2s, color 0.2s; }
+.toolbar button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.06); color: var(--text); }
+.toolbar button.on { color: var(--text); background: rgba(255, 255, 255, 0.14); }
+.toolbar button.on svg { color: var(--accent); }
+.toolbar button:disabled { opacity: 0.35; cursor: default; }
+.toolbar button:focus-visible, .form .btn:focus-visible { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6); }
+
+#ui-root > .tool-hint { pointer-events: none; }
+.tool-hint { position: absolute; top: 70px; left: 50%; transform: translateX(-50%); max-width: calc(100% - 660px); min-width: 260px; text-align: center; padding: 6px 12px; font-size: 11.5px; line-height: 1.45; color: var(--text); background: rgba(20, 24, 31, 0.94); border: 1px solid var(--border); border-radius: 12px; }
+.tool-hint.hidden, .props.hidden { display: none; }
+
+.props { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
+.form { display: grid; gap: 10px; }
+.form label { display: grid; gap: 5px; font-size: 11.5px; color: var(--muted); }
+.form input, .form select { font: inherit; font-size: 12.5px; color: var(--text); background: rgba(0, 0, 0, 0.25); border: 1px solid var(--border); border-radius: 8px; padding: 7px 9px; width: 100%; min-width: 0; outline: none; }
+.form input:focus, .form select:focus { border-color: rgba(255, 255, 255, 0.5); }
+.form input[type='color'] { padding: 2px; height: 33px; cursor: pointer; }
+.form select option { background: #12161d; color: var(--text); }
+.form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.form .btn.danger { display: block; text-align: center; color: var(--err); border: 1px solid rgba(255, 107, 107, 0.35); }
+.form .btn.danger:hover { background: rgba(255, 107, 107, 0.1); }
+
+/* Performans rejimi: bulanıqlıq söndürülür (inteqrasiya olunmuş GPU-larda bahalıdır). */
+body[data-blur='off'] .panel, body[data-blur='off'] .dock, body[data-blur='off'] .toolbar { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(16, 20, 26, 0.96); }
+
+/* Sağ panel (keyfiyyət + xüsusiyyətlər) kiçik noutbuk ekranlarında da görünür. */
+@media (max-width: 1100px) {
+  #ui-root .panel-right { display: block; }
+  .toolbar button span { display: none; }
+  .tool-hint { max-width: calc(100% - 32px); top: auto; bottom: 108px; }
+}
+@media (max-width: 760px) {
+  #ui-root .panel-right { display: none; }
+  .toolbar { top: auto; bottom: 104px; }
+  .tool-hint { bottom: 164px; }
+}
+/* İki sütunlu xüsusiyyətlər forması */
+.form.grid2 { grid-template-columns: 1fr 1fr; gap: 10px 8px; }
+.form.grid2 .wide { grid-column: 1 / -1; }
+.form.grid2 label { align-content: end; }

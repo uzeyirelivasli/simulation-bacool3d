@@ -1,0 +1,50 @@
+/* Bacool — qara-ağ interfeys. Bu fayl ən sonda yüklənir və əvvəlki üslubları incəldir. */
+.panel, .dock, .toolbar, .heatbar, .windcard { background: var(--panel); border-color: var(--border); backdrop-filter: blur(18px) saturate(110%); -webkit-backdrop-filter: blur(18px) saturate(110%); }
+.section h3 svg, .toolbar button.on svg, .dock button.on svg { color: var(--text); }
+.toolbar button.on, .dock button.on { background: #fff; color: #0a0a0a; }
+.toolbar button.on svg, .dock button.on svg { color: #0a0a0a; }
+.segmented button.on { background: #fff; color: #0a0a0a; box-shadow: none; font-weight: 600; }
+.mode-badge { letter-spacing: 0.02em; }
+.splash-title { letter-spacing: 0.42em; }
+.heat-play { color: #0a0a0a; background: #fff; border-color: transparent; }
+.heat-play:hover { background: #d4d4d8; }
+.heat-sun { color: var(--text); }
+input[type='range'] { accent-color: #fff; }
+.model-card.on { background: rgba(255, 255, 255, 0.14); border-color: #fff; }
+.tool-hint { max-width: max(260px, calc(100% - 940px)); background: rgba(10, 10, 10, 0.92); }
+.probe { background: rgba(10, 10, 10, 0.94); }
+.probe-row b.cool { color: #7cc4ff; }
+.probe-row b.warm { color: #ff9a76; }
+
+/* Külək animasiyası: səhnənin üstündə, interfeysin altında */
+.wind-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+
+/* Külək paneli (yuxarıda, sağ panelin yanında) */
+.windcard { position: absolute; top: 16px; right: 304px; width: 164px; padding: 12px 12px 10px; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); font-size: 12px; display: grid; gap: 8px; }
+.windcard-head { display: grid; gap: 2px; }
+.windcard-head span { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.windcard-head b { font-weight: 500; font-size: 11.5px; color: var(--text); white-space: nowrap; }
+.windcard-body { display: grid; gap: 10px; justify-items: stretch; }
+.wind-compass { width: 132px; height: 132px; justify-self: center; overflow: visible; stroke: none; fill: none; }
+.wind-sector { cursor: pointer; outline: none; }
+.wind-sector path { fill: rgba(255, 255, 255, 0.1); stroke: none; transition: fill 0.15s; }
+.wind-sector text { fill: var(--muted); stroke: none; font: 600 9.5px var(--font); text-anchor: middle; dominant-baseline: central; pointer-events: none; transition: fill 0.15s; }
+.wind-sector:hover path, .wind-sector:focus-visible path { fill: rgba(255, 255, 255, 0.24); }
+.wind-sector:hover text { fill: var(--text); }
+.wind-sector.on path { fill: #fff; }
+.wind-sector.on text { fill: #0a0a0a; }
+.wind-hub { cursor: pointer; outline: none; }
+.wind-hub circle { fill: #0a0a0a; stroke: rgba(255, 255, 255, 0.28); stroke-width: 1.2; }
+.wind-hub:hover circle { stroke: #fff; }
+.wind-needle { fill: #fff; stroke: none; transition: transform 0.25s ease, opacity 0.2s; }
+.windcard-side { display: grid; gap: 8px; }
+.wind-speed { display: grid; gap: 4px; color: var(--muted); font-size: 11px; }
+.wind-speed input { width: 100%; margin: 0; }
+.windcard .wind-presets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.windcard .wind-presets button { padding: 5px 0; text-align: center; font-size: 11px; }
+.wind-presets button.on { background: #fff; color: #0a0a0a; border-color: transparent; font-weight: 600; }
+.windcard .toggle { padding: 0; font-size: 11.5px; }
+@media (max-width: 1100px) { .windcard { right: 16px; } }
+@media (max-width: 760px) { .windcard { display: none; } }
+a.brand { text-decoration: none; color: inherit; }
+a.brand:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 10px; }
