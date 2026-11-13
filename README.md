@@ -167,17 +167,6 @@ Coordinate origin: 40.4093° N, 49.8671° E. `x` = east, `y` = north, `z` = up (
 - Google tiles are textured meshes and cannot be edited as individual buildings.
 
 </details>
-
-## Team
-
-| Name | Role |
-|---|---|
-| **Nəzrin Azayeva** | AI Engineer |
-| **Aygün İsgəndərli** | AI Engineer |
-| **Tural İsayev** | Simulation Engineer |
-| **Amin Nəcəfli** | Data Analyst |
-| **Üzeyir Əlivaslı** | UX/UI Developer |
-
 ## Acknowledgements
 
 Huge thanks to the **Youth Foundation of the Republic of Azerbaijan** and the **National Artificial Intelligence Center (MSİM)** for organizing the "Human-Centered Cities" hackathon, to our mentor for guidance throughout the event, and to the jury for their feedback.
